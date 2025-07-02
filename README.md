@@ -1,4 +1,4 @@
-## SEMANA 1: Extração de Nota Fiscal com API
+## SEMANA 1: Extração de NFe com API
 ### Objetivo: Configurar ambiente local, estruturar o projeto e validar o funcionamento básico da API
 **02/07 - 04/07**
 - **Backlog Semanal**
@@ -22,7 +22,7 @@
 1. Enviar a imagem (swagger) 2. Receber a imagem 3.Extrair dados (api gemini) 4. Armazenar imagem.
 
 ---
-## SEMANA 2: Extração de Nota Fiscal com API
+## SEMANA 2: Extração de NFe com API
 ### Objetivo: \<OBJETIVO DA SEMANA\>
 **07/07 - 11/07**
 - **Backlog Semanal**
@@ -36,7 +36,7 @@
     - \<QUESTÕES\>
 - **Respostas das Questões**
     - \<RESPOSTAS\>
-## SEMANA 3: Extração de Nota Fiscal com API
+## SEMANA 3: Extração de NFe com API
 ### Objetivo: \<OBJETIVO DA SEMANA\>
 **14/07 - 17/07**
 - **Backlog Semanal**
