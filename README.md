@@ -2,11 +2,11 @@
 ### Objetivo: Configurar ambiente local, estruturar o projeto e validar o funcionamento básico da API
 **02/07 - 04/07**
 - **Backlog Semanal**
-    - Organizar documentação inicial e plano de projeto.
-    - Baixar e instalar dependências (FastAPI, SQLAlchemy, httpx, etc.).
-    - Criar a estrutura base do projeto com app/, Dockerfile, docker-compose.yml, .env, etc.
-    - Testar execução da API localmente e via Docker (uvicorn).
-    - Configurar o ambiente com venv e listar pacotes no requirements.txt.
+    - Organizar documentação inicial e plano de projeto. (Finalizado dia 02/07)
+    - Baixar e instalar dependências (FastAPI, SQLAlchemy, httpx, etc.). (Finalizado dia 02/07)
+    - Criar a estrutura base do projeto com app/, Dockerfile, docker-compose.yml, .env, etc. (Finalizado dia 02/07)
+    - Testar execução da API localmente e via Docker (uvicorn). (Finalizado dia 03/07)
+    - Configurar o ambiente com venv e listar pacotes no requirements.txt. (Finalizado dia 03/07)
 
 - **Resultado Esperado**
     - Projeto estruturado, com FastAPI rodando localmente via Docker e documentação inicial pronta.
@@ -19,7 +19,7 @@
     - \<RESPOSTAS\>
 ---
 **Anotações**
-1. Enviar a imagem (swagger) 2. Receber a imagem 3.Extrair dados (api gemini) 4. Armazenar imagem.
+1. Enviar a imagem (swagger) 2.Extrair dados (api gemini) 3. Retornar dados em JSON 4. Armazenar informações.
 
 ---
 ## SEMANA 2: Extração de NFe com API
@@ -105,9 +105,9 @@ O ambiente local deve estar num ambiente virtual, criadocom o "venv", e os pacot
     - apresentação final
 ## Diretivas
 - **Reuniões**  
-    **07/07 (segunda)** - report de progresso eimpedimentos  
-    **10/07 (quinta)** - report de progresso eimpedimentos  
-    **15/07 (terça)** - report de progresso eimpedimentos  
+    **07/07 (segunda)** - report de progresso e impedimentos  
+    **10/07 (quinta)** - report de progresso e impedimentos  
+    **15/07 (terça)** - report de progresso e impedimentos  
     **17/07 (quinta, apresentação final)** - apresentaçãodo resultado final  
 - Documentar código e processos durante todo o projeto  
 - Fazer update diário do relatório  
