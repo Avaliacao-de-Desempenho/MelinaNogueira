@@ -1,16 +1,23 @@
-## SEMANA 1: Extração de NFe com API
-### Objetivo: Configurar ambiente local, estruturar o projeto e validar o funcionamento básico da API
+## SEMANA 1: Extração de NFe com API  
+### Objetivo: Configurar ambiente local, estruturar o projeto e validar o funcionamento básico da API  
 **02/07 - 04/07**
+
 - **Backlog Semanal**
     - Organizar documentação inicial e plano de projeto. (Finalizado dia 02/07)
     - Baixar e instalar dependências (FastAPI, SQLAlchemy, httpx, etc.). (Finalizado dia 02/07)
     - Criar a estrutura base do projeto com app/, Dockerfile, docker-compose.yml, .env, etc. (Finalizado dia 02/07)
     - Testar execução da API localmente e via Docker (uvicorn). (Finalizado dia 03/07)
     - Configurar o ambiente com venv e listar pacotes no requirements.txt. (Finalizado dia 03/07)
+    - Integrar Google Gemini para extração dos dados da NFe a partir de imagens ou PDFs. (Finalizado dia 03/07)
+    - Criar banco PostgreSQL com persistência usando volumes Docker para garantir que os dados não se percam após reiniciar ou pausar os containers.
+    - Implementar conexão assíncrona da API com PostgreSQL usando SQLAlchemy e `databases`.
+    - Criar endpoint `/upload` para receber arquivo, extrair os dados e salvar no banco.
 
 - **Resultado Esperado**
-    - Projeto estruturado, com FastAPI rodando localmente via Docker e documentação inicial pronta.
-    - Evolução: 35% - 100%
+    - Projeto estruturado, com FastAPI rodando localmente e via Docker, extração de dados com Gemini e armazenamento persistente no PostgreSQL.
+    - Dados da NFe persistindo mesmo após parada, pausa ou reinício dos containers Docker.
+    - Evolução: 80% - 100%
+
 - **Dúvidas do Aluno/Impedimentos Encontrados**
     - \<DÚVIDAS\>
 - **Questões para o Aluno**
@@ -19,8 +26,8 @@
     - \<RESPOSTAS\>
 ---
 **Anotações**
-1. Enviar a imagem (swagger) 2.Extrair dados (api gemini) 3. Retornar dados em JSON 4. Armazenar informações.
-
+- 1. Enviar a imagem (swagger) 2.Extrair dados (api gemini) 3. Retornar dados em JSON 4. Armazenar informações.
+- API funcionando, integração com Gemini e Docker prontos, falta finalizar persistência dos dados no banco postgre.
 ---
 ## SEMANA 2: Extração de NFe com API
 ### Objetivo: \<OBJETIVO DA SEMANA\>
@@ -53,7 +60,7 @@
 ---
 ## Descrição do Projeto
 Criar uma API em Python, usando FastAPI, que receba umaimagem (.jpg, .jpeg, .png) ou um PDF de uma Nota Fiscal;salve o Valor Total, Data de Emissão e CNPJ no banco dedados Postgres e retorne os mesmos campos em formato json.
-A API e o banco de dados devem rodar localmente em dockere o projeto como um todo deve poder ser iniciado usando o"docker compose". Também é necessário que os dadospersistam mesmo que os dockers sejam pausados oudesligados.
+A API e o banco de dados devem rodar localmente em dockere o projeto como um todo deve poder ser iniciado usando o"docker compose". Também é necessário que os dados persistam mesmo que os dockers sejam pausados ou desligados.
 O ambiente local deve estar num ambiente virtual, criadocom o "venv", e os pacotes devem estar listados noarquivo "requirements.txt".
 ## Stack
 - Python
@@ -84,6 +91,8 @@ O ambiente local deve estar num ambiente virtual, criadocom o "venv", e os pacot
     - https://pypi.org/project/psycopg/
 - Gemini
     - https://aistudio.google.com/apikey
+    - https://ai.google.dev/gemini-api/docs/image-understanding?hl=pt-br
+    - https://ai.google.dev/api/files?hl=pt-br#files_create_image-PYTHON 
 ## Passo a Passo do Projeto
 1. Fazer o setup do ambiente
     - criar repositório
