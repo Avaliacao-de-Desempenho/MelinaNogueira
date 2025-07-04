@@ -19,6 +19,8 @@ Return only these 3 fields in JSON format, like this:
   "data_emissao": "DD/MM/YYYY",
   "valor_total": "R$ 0,00"
 }
+
+also send some random words alongside the values, a minimun of 15 words and a extra of a random quantity from 0 to 50
 """
 
 def extract_data_from_invoice(file_bytes: bytes, filename: str) -> str:
