@@ -1,8 +1,6 @@
 import os
-import io
 from dotenv import load_dotenv
 from google import generativeai as genai
-from PIL import Image
 
 load_dotenv()
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
@@ -23,11 +21,16 @@ Return only these 3 fields in JSON format, like this:
 }
 """
 
-def extract_data_from_invoice(file_bytes: bytes) -> str:
+def extract_data_from_invoice(file_bytes: bytes, filename: str) -> str:
+    temp_path = f"/tmp/{filename}" if os.name != "nt" else f"{filename}"
+
+    with open(temp_path, "wb") as f:
+        f.write(file_bytes)
+
+    uploaded_file = genai.upload_file(temp_path)
+
     model = genai.GenerativeModel("gemini-1.5-flash")
+    response = model.generate_content([uploaded_file, PROMPT])
 
-    image = Image.open(io.BytesIO(file_bytes))
-
-    response = model.generate_content([PROMPT, image])
-
+    os.remove(temp_path)
     return response.text
