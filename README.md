@@ -1,22 +1,16 @@
 ## SEMANA 1: Extração de NFe com API  
 ### Objetivo: Configurar ambiente local, estruturar o projeto e validar o funcionamento básico da API  
 **02/07 - 04/07**
-
 - **Backlog Semanal**
-    - Organizar documentação inicial e plano de projeto. (Finalizado dia 02/07)
-    - Baixar e instalar dependências (FastAPI, SQLAlchemy, httpx, etc.). (Finalizado dia 02/07)
-    - Criar a estrutura base do projeto com app/, Dockerfile, docker-compose.yml, .env, etc. (Finalizado dia 02/07)
-    - Testar execução da API localmente e via Docker (uvicorn). (Finalizado dia 03/07)
-    - Configurar o ambiente com venv e listar pacotes no requirements.txt. (Finalizado dia 03/07)
-    - Integrar Google Gemini para extração dos dados da NFe a partir de imagens ou PDFs. (Finalizado dia 03/07)
-    - Criar banco PostgreSQL com persistência usando volumes Docker para garantir que os dados não se percam após reiniciar ou pausar os containers.
-    - Implementar conexão assíncrona da API com PostgreSQL usando SQLAlchemy e `databases`.
-    - Criar endpoint `/upload` para receber arquivo, extrair os dados e salvar no banco.
+    - Organizar documentação inicial e plano de projeto; (Finalizado dia 02/07)
+    - Baixar e instalar dependências (FastAPI, SQLAlchemy, httpx, etc.); (Finalizado dia 02/07)
+    - Criar a estrutura base do projeto com app/, Dockerfile, docker-compose.yml, .env, etc; (Finalizado dia 02/07)
+    - Testar execução da API localmente e via Docker (uvicorn); (Finalizado dia 03/07)
+    - Integrar API do Gemini para extração de dados da nota. (Finalizado dia 04/07)
 
 - **Resultado Esperado**
-    - Projeto estruturado, com FastAPI rodando localmente e via Docker, extração de dados com Gemini e armazenamento persistente no PostgreSQL.
-    - Dados da NFe persistindo mesmo após parada, pausa ou reinício dos containers Docker.
-    - Evolução: 80% - 100%
+    - Projeto estruturado, com FastAPI rodando localmente e via Docker, extração de dados com Gemini.
+    - Evolução: **80% - 100%**
 
 - **Dúvidas do Aluno/Impedimentos Encontrados**
     - \<DÚVIDAS\>
@@ -24,25 +18,38 @@
     - \<QUESTÕES\>
 - **Respostas das Questões**
     - \<RESPOSTAS\>
----
-**Anotações**
-- 1. Enviar a imagem (swagger) 2.Extrair dados (api gemini) 3. Retornar dados em JSON 4. Armazenar informações.
-- API funcionando, integração com Gemini e Docker prontos, falta finalizar persistência dos dados no banco postgre.
----
+
+- **Anotações**
+    1. Enviar a imagem;  
+    2. Extrair dados com API Gemini;
+    3. Retornar dados em JSON;
+    4. Salvar dados num banco;
+    
+    API funcionando, integração com Gemini e Docker prontos.
+
 ## SEMANA 2: Extração de NFe com API
-### Objetivo: \<OBJETIVO DA SEMANA\>
+### Objetivo: Armazenar as informações extraídas em banco PostgreSQL de forma persistente
 **07/07 - 11/07**
 - **Backlog Semanal**
-    - \<QUEBRAR O OBJETIVO DA SEMANA EM PARTES MENORES\>
+    - Criar banco PostgreSQL com persistência usando volumes Docker. (Finalizado dia 07/07)
+    - Criar endpoint `/upload` que insere os dados extraídos no banco de dados. (Finalizado dia 07/07)
+    - Ajustar parsing de datas da resposta do Gemini. (Finalizado dia 07/07)
+    - Validar persistência após reinício dos containers Docker. (Finalizado dia 08/07)
+    - Finalizar e revisar documentação. (Finalizado dia 08/07)
+
 - **Resultado Esperado**
-    - \<QUAL ENTREGÁVEL SERÁ PRODUZIDO QUANDO O OBJETIVOFOR ALCANÇADO (FINAL DA SEMANA)\>
-    - Evolução: \<0% - 100%\>
+    - Dados extraídos da NFe sendo salvos corretamente no banco PostgreSQL e persistindo.
+    - Evolução: **100%**
+
 - **Dúvidas do Aluno/Impedimentos Encontrados**
     - \<DÚVIDAS\>
+
 - **Questões para o Aluno**
     - \<QUESTÕES\>
+
 - **Respostas das Questões**
     - \<RESPOSTAS\>
+
 ## SEMANA 3: Extração de NFe com API
 ### Objetivo: \<OBJETIVO DA SEMANA\>
 **14/07 - 17/07**
