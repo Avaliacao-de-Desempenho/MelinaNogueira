@@ -5,3 +5,5 @@ python-dotenv
 google-generativeai
 databases
 sqlalchemy
+asyncpg
+psycopg2-binary
