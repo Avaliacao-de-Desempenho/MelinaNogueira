@@ -27,7 +27,7 @@ Example of required output format:
 Do not deviate from this format. Do not add any text outside the JSON structure. If a field is missing or unclear, return null for that field but maintain the JSON structure.
 """
 
-def extract_data_from_invoice(file_bytes: bytes, filename: str) -> str:
+def extract_data(file_bytes: bytes, filename: str) -> str:
     temp_path = f"/tmp/{filename}" if os.name != "nt" else f"{filename}"
 
     with open(temp_path, "wb") as f:
