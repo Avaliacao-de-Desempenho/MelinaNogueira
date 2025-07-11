@@ -1,5 +1,5 @@
 from databases import Database
-from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String, Date
+from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String, Date, TIMESTAMP
 import os
 from dotenv import load_dotenv
 
@@ -17,6 +17,7 @@ notas_fiscais = Table(
     Column("cnpj", String(20)),
     Column("data_emissao", Date),
     Column("valor_total", String(20)),
+    Column("data_registro", TIMESTAMP)
 )
 
 engine = create_engine(DATABASE_URL)
