@@ -55,6 +55,7 @@
 - **Resultado Esperado**
     - Dados extraídos da NFe sendo salvos corretamente no banco PostgreSQL e persistindo.
     - Evolução: **100%**
+    - Equivalente a **100%** do projeto total.
 
 - **Dúvidas do Aluno/Impedimentos Encontrados**
     - \<DÚVIDAS\>
