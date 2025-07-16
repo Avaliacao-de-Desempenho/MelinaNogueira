@@ -50,7 +50,7 @@
     - Adicionar coluna `data_registro`, para saber a data e horário que os dados foram armazenados no banco de dados.
 
 - **11/07**
-    - Analisar [pontos de melhoria](#anotações).
+    - Analisar pontos de melhoria.
 
 - **Resultado Esperado**
     - Dados extraídos da NFe sendo salvos corretamente no banco PostgreSQL e persistindo.
@@ -72,20 +72,52 @@
     - Separar o `main.py` em funções menores, exemplo: extração, conversão, inserção e validações.
 
 ## SEMANA 3: Extração de NFe com API
-### Objetivo: \<OBJETIVO DA SEMANA\>
-**14/07 - 17/07**
-- **Backlog Semanal**
-    - Data de inserção 
-    - \<QUEBRAR O OBJETIVO DA SEMANA EM PARTES MENORES\>
+### Objetivo: Melhorias na projeto
+### Backlog Semanal (14/07 - 17/07)
+- **14/07**
+    - Implementar a validação de dados;
+    - Fazer tratamento de erros.
+
+- **15/07**
+    - Dividir o main.py em funções;
+    - Estudar Cloud Run, Cloud Build e postgres no Cloud SQL.
+
 - **Resultado Esperado**
-    - \<QUAL ENTREGÁVEL SERÁ PRODUZIDO QUANDO O OBJETIVOFOR ALCANÇADO (FINAL DA SEMANA)\>
-    - Evolução: \<0% - 100%\>
+    - Melhorias implementadas com sucesso e estudo básico sobre os serviços Cloud.
+    - Evolução: **90%**
+
 - **Dúvidas do Aluno/Impedimentos Encontrados**
     - \<DÚVIDAS\>
+
 - **Questões para o Aluno**
     - \<QUESTÕES\>
+
 - **Respostas das Questões**
     - \<RESPOSTAS\>
+
+- **Anotações**
+
+ `Cloud Run`: serviço do Google Cloud que permite executar aplicações em containers diretamente na infraestrutura, sem precisar se preocupar com servidores, balanceamento de carga, nem escalabilidade pois o Cloud Run cuida de tudo isso automaticamente.
+
+É recomendado para APIs, backends, webhooks e serviços leves que não precisam rodar 24h por dia.
+
+Aplicação: você empacota sua API FastAPI em um container, faz o deploy no Cloud Run e recebe uma URL pública para consumir a API.
+      
+`Cloud Build`: ferramenta de CI/CD que automatiza todo o processo de build e deploy da sua aplicação. É comumente usada na criação de pipelines de build automatizadas, facilitando o desenvolvimento, testes e publicação de aplicações.
+
+Recomendado para construir imagens Docker com seu código, rodar testes automaticamente, fazer o deploy direto no Cloud Run ou outros serviços, e integrar com GitHub para deploy automático a cada push.
+
+Aplicação: você faz push no GitHub → o Cloud Build executa o cloudbuild.yaml → cria a imagem Docker → faz o deploy no Cloud Run.
+
+`Cloud SQL com PostgreSQL`: serviço de banco de dados relacional gerenciado do Google Cloud, você pode usar PostgreSQL, MySQL ou SQL Server, e ele cuida de atualizações, backups, disponibilidade e escalabilidade.
+
+Recomendado para armazenar os dados da sua aplicação, como usuários, produtos ou as notas fiscais extraídas pela API.
+
+Aplicação: você cria uma instância PostgreSQL no Cloud SQL, conecta sua API FastAPI a ela, e a aplicação passa a ler/gravar os dados diretamente no banco na nuvem.
+
+`Fluxo`:
+1- Api 2- Cloud Build (docker e deploy) 3- Cloud Run (executar a api na nuvem) 4- Cloud SQL (api se conecta com o db no cloud).
+
 ---
 ## Descrição do Projeto
 Criar uma API em Python, usando FastAPI, que receba uma imagem (.jpg, .jpeg, .png) ou um PDF de uma Nota Fiscal, salve o Valor Total, Data de Emissão e CNPJ no banco de dados Postgres e retorne os mesmos campos em formato json.
@@ -123,6 +155,12 @@ O ambiente local deve estar num ambiente virtual, criado com o "venv", e os paco
     - https://aistudio.google.com/apikey
     - https://ai.google.dev/gemini-api/docs/image-understanding?hl=pt-br
     - https://ai.google.dev/api/files?hl=pt-br#files_create_image-PYTHON 
+
+- Google Cloud
+    - https://cloud.google.com/run/docs/overview/what-is-cloud-run
+    - https://cloud.google.com/build/docs
+    - https://cloud.google.com/sql/docs/introduction
+
 ## Passo a Passo do Projeto
 1. Fazer o setup do ambiente
     - criar repositório
