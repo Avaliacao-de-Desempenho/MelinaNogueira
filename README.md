@@ -19,13 +19,6 @@
     - Evolução: **100%**;
     - Equivalente a **80%** do projeto total.
 
-- **Dúvidas do Aluno/Impedimentos Encontrados**
-    - \<DÚVIDAS\>
-- **Questões para o Aluno**
-    - \<QUESTÕES\>
-- **Respostas das Questões**
-    - \<RESPOSTAS\>
-
 - **Anotações**
     1. Enviar a imagem;  
     2. Extrair dados com API Gemini;
@@ -57,15 +50,6 @@
     - Evolução: **100%**
     - Equivalente a **100%** do projeto total.
 
-- **Dúvidas do Aluno/Impedimentos Encontrados**
-    - \<DÚVIDAS\>
-
-- **Questões para o Aluno**
-    - \<QUESTÕES\>
-
-- **Respostas das Questões**
-    - \<RESPOSTAS\>
-
 - **Anotações**
     - Validação de dados: validar os dados retornados do gemini antes de inserir no banco de dados;
     - Tratamento de erros: melhorar o `try/except`, detalhar melhor o erro;
@@ -84,18 +68,8 @@
 
 - **Resultado Esperado**
     - Melhorias implementadas com sucesso e estudo básico sobre os serviços Cloud.
-    - Evolução: **90%**
+    - Evolução: **100%**
 
-- **Dúvidas do Aluno/Impedimentos Encontrados**
-    - \<DÚVIDAS\>
-
-- **Questões para o Aluno**
-    - \<QUESTÕES\>
-
-- **Respostas das Questões**
-    - \<RESPOSTAS\>
-
-- **Anotações**
 
  `Cloud Run`: serviço do Google Cloud que permite executar aplicações em containers diretamente na infraestrutura, sem precisar se preocupar com servidores, balanceamento de carga, nem escalabilidade pois o Cloud Run cuida de tudo isso automaticamente.
 
