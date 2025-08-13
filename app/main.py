@@ -24,8 +24,27 @@ def read_root():
 def extract_json(text: str) -> dict:
     cleaned = re.sub(r"^```(?:json)?\n?", "", text.strip())
     cleaned = re.sub(r"\n?```$", "", cleaned.strip())
-    return json.loads(cleaned)
+    try:
+        return json.loads(cleaned)
+    except json.JSONDecodeError:
+        raise HTTPException(status_code=422, detail="Resposta do Gemini não está em JSON válido.")
 
+#12.345.678/0001-90
+def cnpj_validate(cnpj: str) -> bool:
+    model = r"^\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}$"
+    return bool(re.match(model, cnpj))
+
+def date_validate(data_str: str) -> bool:
+    try:
+        datetime.strptime(data_str, "%d/%m/%Y")
+        return True
+    except ValueError:
+        return False
+    
+def value_validate(valor: str) -> bool:
+    model = r"^R\$ (\d{1,3}(\.\d{3})*|\d+),\d{2}$"
+    return bool(re.match(model, valor))   
+    
 @app.post("/upload")
 async def upload_file(file: UploadFile = File(...)):
     if file.content_type not in ALLOWED_TYPES:
@@ -37,6 +56,15 @@ async def upload_file(file: UploadFile = File(...)):
         response_text = extract_data(contents, file.filename)
         data = extract_json(response_text)
 
+        if not (cnpj_validate)(data["cnpj"]):
+            raise HTTPException(status_code=400, detail="CNPJ inválido.")
+        
+        if not (date_validate)(data["data_emissao"]):
+            raise HTTPException(status_code=400, detail= "Data de emissão inválida")
+        
+        if not (value_validate)(data["valor_total"]):
+            raise HTTPException(status_code=400, detail="Valor total inválido")
+        
         await database.execute(
             notas_fiscais.insert().values(
                 cnpj=data["cnpj"],
