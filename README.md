@@ -1,22 +1,23 @@
 ## SEMANA 1: Extração de NFe com API  
 ### Objetivo: Configurar ambiente local, estruturar o projeto e validar o funcionamento básico da API  
-**02/07 - 04/07**
 
-- **Backlog Semanal**
-    - Organizar documentação inicial e plano de projeto. (Finalizado dia 02/07)
-    - Baixar e instalar dependências (FastAPI, SQLAlchemy, httpx, etc.). (Finalizado dia 02/07)
-    - Criar a estrutura base do projeto com app/, Dockerfile, docker-compose.yml, .env, etc. (Finalizado dia 02/07)
-    - Testar execução da API localmente e via Docker (uvicorn). (Finalizado dia 03/07)
-    - Configurar o ambiente com venv e listar pacotes no requirements.txt. (Finalizado dia 03/07)
-    - Integrar Google Gemini para extração dos dados da NFe a partir de imagens ou PDFs. (Finalizado dia 03/07)
-    - Criar banco PostgreSQL com persistência usando volumes Docker para garantir que os dados não se percam após reiniciar ou pausar os containers.
-    - Implementar conexão assíncrona da API com PostgreSQL usando SQLAlchemy e `databases`.
-    - Criar endpoint `/upload` para receber arquivo, extrair os dados e salvar no banco.
+### Backlog Semanal (02/07 - 04/07)
+- **02/07**
+    - Organizar documentação inicial e plano de projeto; 
+    - Baixar e instalar dependências (FastAPI, SQLAlchemy, httpx, etc.); 
+    - Criar a estrutura base do projeto com app/, Dockerfile, docker-compose.yml, .env, etc.
+
+- **03/07**
+    - Testar execução da API localmente e via Docker (uvicorn).
+
+- **04/07**
+    - Integrar API do Gemini para extração de dados da nota.
+
 
 - **Resultado Esperado**
-    - Projeto estruturado, com FastAPI rodando localmente e via Docker, extração de dados com Gemini e armazenamento persistente no PostgreSQL.
-    - Dados da NFe persistindo mesmo após parada, pausa ou reinício dos containers Docker.
-    - Evolução: 80% - 100%
+    - Projeto estruturado, com FastAPI rodando localmente e via Docker, extração de dados com Gemini;
+    - Evolução: **100%**;
+    - Equivalente a **80%** do projeto total.
 
 - **Dúvidas do Aluno/Impedimentos Encontrados**
     - \<DÚVIDAS\>
@@ -24,44 +25,104 @@
     - \<QUESTÕES\>
 - **Respostas das Questões**
     - \<RESPOSTAS\>
----
-**Anotações**
-- 1. Enviar a imagem (swagger) 2.Extrair dados (api gemini) 3. Retornar dados em JSON 4. Armazenar informações.
-- API funcionando, integração com Gemini e Docker prontos, falta finalizar persistência dos dados no banco postgre.
----
+
+- **Anotações**
+    1. Enviar a imagem;  
+    2. Extrair dados com API Gemini;
+    3. Retornar dados em JSON;
+    4. Salvar dados num banco;
+    
+    API funcionando, integração com Gemini e Docker prontos.
+
 ## SEMANA 2: Extração de NFe com API
-### Objetivo: \<OBJETIVO DA SEMANA\>
-**07/07 - 11/07**
-- **Backlog Semanal**
-    - \<QUEBRAR O OBJETIVO DA SEMANA EM PARTES MENORES\>
+### Objetivo: Armazenar as informações extraídas em banco PostgreSQL de forma persistente
+### Backlog Semanal (07/07 - 11/07)
+- **07/07**
+    - Criar banco PostgreSQL com persistência usando volumes Docker;
+    - Criar endpoint `/upload` que insere os dados extraídos no banco de dados;
+    - Ajustar parsing de datas da resposta do Gemini.
+
+- **08/07**
+    - Validar persistência após reinício dos containers Docker;
+    - Finalizar e revisar documentação.
+
+- **10/07**
+    - Adicionar coluna `data_registro`, para saber a data e horário que os dados foram armazenados no banco de dados.
+
+- **11/07**
+    - Analisar pontos de melhoria.
+
 - **Resultado Esperado**
-    - \<QUAL ENTREGÁVEL SERÁ PRODUZIDO QUANDO O OBJETIVOFOR ALCANÇADO (FINAL DA SEMANA)\>
-    - Evolução: \<0% - 100%\>
+    - Dados extraídos da NFe sendo salvos corretamente no banco PostgreSQL e persistindo.
+    - Evolução: **100%**
+    - Equivalente a **100%** do projeto total.
+
 - **Dúvidas do Aluno/Impedimentos Encontrados**
     - \<DÚVIDAS\>
+
 - **Questões para o Aluno**
     - \<QUESTÕES\>
+
 - **Respostas das Questões**
     - \<RESPOSTAS\>
+
+- **Anotações**
+    - Validação de dados: validar os dados retornados do gemini antes de inserir no banco de dados;
+    - Tratamento de erros: melhorar o `try/except`, detalhar melhor o erro;
+    - Separar o `main.py` em funções menores, exemplo: extração, conversão, inserção e validações.
+
 ## SEMANA 3: Extração de NFe com API
-### Objetivo: \<OBJETIVO DA SEMANA\>
-**14/07 - 17/07**
-- **Backlog Semanal**
-    - \<QUEBRAR O OBJETIVO DA SEMANA EM PARTES MENORES\>
+### Objetivo: Melhorias na projeto
+### Backlog Semanal (14/07 - 17/07)
+- **14/07**
+    - Implementar a validação de dados;
+    - Fazer tratamento de erros.
+
+- **15/07**
+    - Dividir o main.py em funções;
+    - Estudar Cloud Run, Cloud Build e postgres no Cloud SQL.
+
 - **Resultado Esperado**
-    - \<QUAL ENTREGÁVEL SERÁ PRODUZIDO QUANDO O OBJETIVOFOR ALCANÇADO (FINAL DA SEMANA)\>
-    - Evolução: \<0% - 100%\>
+    - Melhorias implementadas com sucesso e estudo básico sobre os serviços Cloud.
+    - Evolução: **90%**
+
 - **Dúvidas do Aluno/Impedimentos Encontrados**
     - \<DÚVIDAS\>
+
 - **Questões para o Aluno**
     - \<QUESTÕES\>
+
 - **Respostas das Questões**
     - \<RESPOSTAS\>
+
+- **Anotações**
+
+ `Cloud Run`: serviço do Google Cloud que permite executar aplicações em containers diretamente na infraestrutura, sem precisar se preocupar com servidores, balanceamento de carga, nem escalabilidade pois o Cloud Run cuida de tudo isso automaticamente.
+
+É recomendado para APIs, backends, webhooks e serviços leves que não precisam rodar 24h por dia.
+
+Aplicação: você empacota sua API FastAPI em um container, faz o deploy no Cloud Run e recebe uma URL pública para consumir a API.
+      
+`Cloud Build`: ferramenta de CI/CD que automatiza todo o processo de build e deploy da sua aplicação. É comumente usada na criação de pipelines de build automatizadas, facilitando o desenvolvimento, testes e publicação de aplicações.
+
+Recomendado para construir imagens Docker com seu código, rodar testes automaticamente, fazer o deploy direto no Cloud Run ou outros serviços, e integrar com GitHub para deploy automático a cada push.
+
+Aplicação: você faz push no GitHub → o Cloud Build executa o cloudbuild.yaml → cria a imagem Docker → faz o deploy no Cloud Run.
+
+`Cloud SQL com PostgreSQL`: serviço de banco de dados relacional gerenciado do Google Cloud, você pode usar PostgreSQL, MySQL ou SQL Server, e ele cuida de atualizações, backups, disponibilidade e escalabilidade.
+
+Recomendado para armazenar os dados da sua aplicação, como usuários, produtos ou as notas fiscais extraídas pela API.
+
+Aplicação: você cria uma instância PostgreSQL no Cloud SQL, conecta sua API FastAPI a ela, e a aplicação passa a ler/gravar os dados diretamente no banco na nuvem.
+
+`Fluxo`:
+1- Api 2- Cloud Build (docker e deploy) 3- Cloud Run (executar a api na nuvem) 4- Cloud SQL (api se conecta com o db no cloud).
+
 ---
 ## Descrição do Projeto
-Criar uma API em Python, usando FastAPI, que receba umaimagem (.jpg, .jpeg, .png) ou um PDF de uma Nota Fiscal;salve o Valor Total, Data de Emissão e CNPJ no banco dedados Postgres e retorne os mesmos campos em formato json.
-A API e o banco de dados devem rodar localmente em dockere o projeto como um todo deve poder ser iniciado usando o"docker compose". Também é necessário que os dados persistam mesmo que os dockers sejam pausados ou desligados.
-O ambiente local deve estar num ambiente virtual, criadocom o "venv", e os pacotes devem estar listados noarquivo "requirements.txt".
+Criar uma API em Python, usando FastAPI, que receba uma imagem (.jpg, .jpeg, .png) ou um PDF de uma Nota Fiscal, salve o Valor Total, Data de Emissão e CNPJ no banco de dados Postgres e retorne os mesmos campos em formato json.
+A API e o banco de dados devem rodar localmente em docker e o projeto como um todo deve poder ser iniciado usando o"docker compose". Também é necessário que os dados persistam mesmo que os dockers sejam pausados ou desligados.
+O ambiente local deve estar num ambiente virtual, criado com o "venv", e os pacotes devem estar listados no arquivo "requirements.txt".
 ## Stack
 - Python
 - Postgres
@@ -75,6 +136,7 @@ O ambiente local deve estar num ambiente virtual, criadocom o "venv", e os pacot
 - Python
     - https://www.python.org/downloads/
     - https://www.python.org/doc/
+    - https://www.alura.com.br/artigos/lidando-com-datas-e-horarios-no-python
 - Repositório de pacotes python
     - https://pypi.org/
 - Ambiente virtual
@@ -93,6 +155,12 @@ O ambiente local deve estar num ambiente virtual, criadocom o "venv", e os pacot
     - https://aistudio.google.com/apikey
     - https://ai.google.dev/gemini-api/docs/image-understanding?hl=pt-br
     - https://ai.google.dev/api/files?hl=pt-br#files_create_image-PYTHON 
+
+- Google Cloud
+    - https://cloud.google.com/run/docs/overview/what-is-cloud-run
+    - https://cloud.google.com/build/docs
+    - https://cloud.google.com/sql/docs/introduction
+
 ## Passo a Passo do Projeto
 1. Fazer o setup do ambiente
     - criar repositório
